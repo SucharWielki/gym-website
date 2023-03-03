@@ -72,6 +72,9 @@ html, body {
   width: 70%;
   text-align: center;
   z-index: 2;
+  padding: 2rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background-color: rgba(15, 14, 14, 0.8);
 }
 .header__hero .hero__title {
   font-size: 1.7rem;
@@ -142,7 +145,6 @@ html, body {
 
 .main__programs {
   width: 90%;
-  height: 100vh;
 }
 
 .programs__content {
@@ -162,10 +164,74 @@ html, body {
   flex-direction: column;
   gap: 0.7rem;
   border: 1px solid rgb(169, 169, 169);
+  border-radius: 7px;
   padding: 1rem;
 }
 .programs__content .program .programs__title {
   font-size: 1.5rem;
+}
+
+.main__motivate {
+  width: 90%;
+  border-top: 1px solid rgb(169, 169, 169);
+  border-bottom: 1px solid rgb(169, 169, 169);
+  text-align: center;
+}
+.main__motivate .motivate__content {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.main__motivate .motivate__content .motivate__button {
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 0.5rem 1.3rem;
+  border: 1px solid rgb(15, 14, 14);
+  border-radius: 4px;
+  color: rgb(15, 14, 14);
+  background-color: rgb(255, 255, 255);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 5rem;
+}
+.footer__content .footer__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.footer__content .footer__links a {
+  color: rgb(15, 14, 14);
+  text-decoration: underline;
+}
+.footer__content .footer__links--socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+.footer__content .footer__links--socials .link__icon {
+  width: 28px;
+}
+
+.footer__copyrights {
+  font-size: 0.7rem;
 }
 
 /*# sourceMappingURL=style.css.map */
