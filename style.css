@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  font-family: "Golos Text", sans-serif;
+}
+
+html, body {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__nav {
+  width: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px -3px gray;
+}
+.header__nav .nav__logo {
+  color: rgb(15, 14, 14);
+  font-size: 1.7rem;
+}
+.header__nav .nav__buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+.header__nav .nav__buttons .nav__button {
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 0.5rem 1.3rem;
+  border: 1px solid rgb(15, 14, 14);
+  border-radius: 4px;
+  color: rgb(15, 14, 14);
+  background-color: rgb(255, 255, 255);
+}
+
+.header__hero {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(/src/images/hero-background-phone.jpg) no-repeat fixed center;
+  background-size: cover;
+  z-index: -2;
+}
+.header__hero .hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 70%;
+  text-align: center;
+  z-index: 2;
+}
+.header__hero .hero__title {
+  font-size: 1.7rem;
+  color: rgb(255, 255, 255);
+}
+.header__hero .hero__button {
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 0.5rem 1.3rem;
+  border: 1px solid rgb(15, 14, 14);
+  border-radius: 4px;
+  color: rgb(15, 14, 14);
+  background-color: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.main__features {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.2rem;
+}
+
+.features__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.features__content .features__title {
+  font-size: 1.5rem;
+}
+.features__content .features__description {
+  font-size: 1.2rem;
+}
+
+.features__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(169, 169, 169);
+}
+.card .card__image {
+  width: 100%;
+}
+.card .card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.2rem 2rem;
+}
+
+.main__programs {
+  width: 90%;
+  height: 100vh;
+}
+
+.programs__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.programs__content .programs__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.7rem;
+}
+.programs__content .program {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border: 1px solid rgb(169, 169, 169);
+  padding: 1rem;
+}
+.programs__content .program .programs__title {
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
