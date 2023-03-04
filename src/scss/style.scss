@@ -4,6 +4,9 @@ $primary: rgba(15, 14, 14, 1);
 $secondary: rgba(255, 255, 255, 1);
 $third: rgba(169,169,169, 1);
 
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
 @mixin button {
     width: fit-content;
     box-sizing: border-box;
@@ -11,78 +14,77 @@ $third: rgba(169,169,169, 1);
     border: 1px solid $primary;
     border-radius: 4px;
     color: $primary;
-    background-color: $secondary; 
+    background-color: $secondary;
+    font-weight: 600;
+    cursor: pointer;
 }
+
+@mixin flex(
+    $direction: row,
+    $justify: center,
+    $align: center) {
+        display: flex;
+        flex-direction: $direction;
+        justify-content: $justify;
+        align-items: $align;
+    }
 
 * {
     margin: 0;
-    font-family: 'Golos Text', sans-serif;
 }
 html, body {
+    font-family: 'Golos Text', sans-serif;
     font-size: 16px;
     scroll-behavior: smooth;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    @include flex(column, center, center);
 }
 .header {
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    @include flex(column, flex-start, center);
 }
 .header__nav {
     width: 100%;
     padding: .5rem 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     background-color: $secondary;
     box-shadow: 0 4px 8px -3px gray;
+    @include flex(row, space-around, center);
 
     .nav__logo {
         color: $primary;
         font-size: 1.7rem;
     }
     .nav__buttons {
-        display: flex;
+        @include flex();
         gap: .5rem;
 
         .nav__button {
             @include button;
+            font-size: .8rem;
         }
     }
 }
 .header__hero {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: url(/src/images/hero-background-phone.jpg) no-repeat fixed center;
     background-size: cover;
     z-index: -2;
+    @include flex(column, center, center);
+}
+.hero__content {
+    gap: 2rem;
+    margin: 2rem;
+    text-align: center;
+    z-index: 2;
+    padding: 2rem 1rem;
+    border: 1px solid rgba($color: $secondary, $alpha: 0.7);
+    background-color: rgba($color: $primary, $alpha: 0.8);
+    @include flex(column, center, center);
 
-    .hero__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        width: 70%;
-        text-align: center;
-        z-index: 2;
-        padding: 2rem 1rem;
-        border: 1px solid rgba($color: $secondary, $alpha: 0.7);
-        background-color: rgba($color: $primary, $alpha: 0.8);
-    }
     .hero__title {
         font-size: 1.7rem;
         color: $secondary;
@@ -94,24 +96,20 @@ html, body {
 
 .main {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 3rem;
+    margin-top: 5rem;
+    @include flex(column, center, center);
 }
 .main__features {
     width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
     gap: 2.2rem;
+    @include flex(column, center, center);
 }
 .features__content {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     gap: 1rem;
+    @include flex(column);
 
     .features__title {
         font-size: 1.5rem;
@@ -121,25 +119,20 @@ html, body {
     }
 }
 .features__cards {
-    display: flex;
-    flex-direction: column;
     gap: 2.5rem;
+    @include flex(column);
 }
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     border: 1px solid $third;
+    @include flex(column, center, center);
 
     .card__image {
         width: 100%;
     }
     .card__info {
-        display: flex;
-        flex-direction: column;
         gap: .6rem;
         padding: 1.2rem 2rem;
+        @include flex(column);
     }
 }
 
@@ -147,28 +140,24 @@ html, body {
     width: 90%;
 }
 .programs__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 1.5rem;
+    @include flex(column, center, center);
+}
+.programs__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 2.7rem;
+}
+.program {
+    gap: .7rem;
+    border: 1px solid $third;
+    border-radius: 7px;
+    padding: 1rem;
+    @include flex(column, flex-start, flex-start);
 
-    .programs__info {
-        display: flex;
-        flex-direction: column;
-        gap: 2.7rem;
-    }
-    .program {
-        display: flex;
-        flex-direction: column;
-        gap: .7rem;
-        border: 1px solid $third;
-        border-radius: 7px;
-        padding: 1rem;
-
-        .programs__title {
-            font-size: 1.5rem;
-        }
+    .programs__title {
+        font-size: 1.5rem;
     }
 }
 
@@ -180,10 +169,8 @@ html, body {
 
     .motivate__content {
         padding: 1rem 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 1.2rem;
+        @include flex(column, center, center);
 
         .motivate__button {
             @include button;
@@ -192,42 +179,77 @@ html, body {
 }
 
 .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.1rem;
+    width: 90%;
+    margin: 1.1rem 0;
+    gap: 1.5rem;
+    @include flex(column, center, center);
 }
 .footer__content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 5rem;
-    
-    .footer__links {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1.5rem;
+    width: 100%;
+    @include flex(row, space-around, center);
+}
+.footer__links {
+    gap: 1.5rem;
+    @include flex(column, center, flex-start);
 
-        a {
-            color: $primary;
-            text-decoration: underline;
-        }
+    a {
+        color: $primary;
+        text-decoration: underline;
     }
-    .footer__links--socials {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        gap: .7rem;
+}
+.footer__links--socials {
+    gap: .7rem;
+    @include flex(column, center, flex-end);
 
-        .link__icon {
-            width: 28px;
-        }
+    .link__icon {
+        width: 28px;
     }
 }
 .footer__copyrights {
     font-size: .7rem;
+}
+
+@media (min-width: $breakpoint-tablet) {
+    html, body {
+        font-size: 22px;
+    }
+    .main__features {
+        width: 80%;
+    }
+    .footer__content {
+        gap: 1.5rem;
+        @include flex(column-reverse, center, center);
+    }
+    .footer__links {
+        @include flex(row);
+    }
+    .footer__links--socials {
+        gap: 2rem;
+
+        .link__icon {
+            width: 36px;
+        }
+    }
+}
+
+@media (min-width: $breakpoint-desktop) {
+    html, body {
+        font-size: 18px;
+    }
+    .hero__content {
+        padding: 3rem;
+    }
+    .features__cards {
+        @include flex(row);
+    }
+    .programs__info {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .motivate__description {
+        width: 60%;
+    }
+    .footer__content {
+        @include flex(row, space-evenly, center);
+    }
 }
